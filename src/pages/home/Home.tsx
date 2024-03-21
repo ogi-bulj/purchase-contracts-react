@@ -17,7 +17,6 @@ const Home = () => {
         console.log(err);
       });
   }, []);
-  console.log(tableData);
   return (
     <div className={styles.container}>
       {/* Table */}

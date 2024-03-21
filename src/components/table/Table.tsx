@@ -26,7 +26,7 @@ const Table: React.FC<TableDataProps> = ({ data }) => {
         <div style={{ backgroundColor: "grey" }} className={styles.statusBox} />
       );
   };
-  const formatDate = () => {};
+
   return (
     <table className={styles.table}>
       <thead>
