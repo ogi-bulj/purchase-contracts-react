@@ -1,32 +1,12 @@
 import React from "react";
 import styles from "./Table.module.css";
 import { Contract } from "../../pages/home/api/getContracts";
+import { formatDate } from "../../utils/formatDate";
 
 interface TableDataProps {
   data: Contract[];
 }
 const Table: React.FC<TableDataProps> = ({ data }) => {
-  const formatStatus = (status: string) => {
-    if (status === "KREIRANO") {
-      return (
-        <div
-          style={{ backgroundColor: "green" }}
-          className={styles.statusBox}
-        />
-      );
-    } else if (status === "NARUČENO") {
-      return (
-        <div
-          style={{ backgroundColor: "yellow" }}
-          className={styles.statusBox}
-        />
-      );
-    } else if (status === "ISPORUČENO")
-      return (
-        <div style={{ backgroundColor: "grey" }} className={styles.statusBox} />
-      );
-  };
-
   return (
     <table className={styles.table}>
       <thead>
@@ -42,8 +22,15 @@ const Table: React.FC<TableDataProps> = ({ data }) => {
           <tr key={item.id} className={styles.row}>
             <td className={styles.cell}>{item.kupac}</td>
             <td className={styles.cell}>{item.broj_ugovora}</td>
-            <td className={styles.cell}>{item.rok_isporuke}</td>
-            <td className={styles.cell}>{formatStatus(item.status)}</td>
+            <td className={styles.cell}>{formatDate(item.rok_isporuke)}</td>
+            <td className={styles.cell}>
+              <div
+                style={{
+                  backgroundColor: "",
+                }}
+                className={styles.statusBox}
+              />
+            </td>
           </tr>
         ))}
       </tbody>
