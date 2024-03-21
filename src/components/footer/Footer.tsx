@@ -3,7 +3,7 @@ import styles from "./Footer.module.css";
 const Footer = () => {
   return (
     <div className={styles.container}>
-      <div>Footer</div>
+      <p className={styles.text}>&#169; 2024 - Ognjen Bulj</p>
     </div>
   );
 };

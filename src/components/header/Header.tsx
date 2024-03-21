@@ -1,11 +1,12 @@
 import styles from "./Header.module.css";
-import CrossIcon from "../../assets/cross.svg";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <div className={styles.container}>
       {/* Left (logo) box */}
-      <div className={styles.logoBox}>
+      <div onClick={() => navigate("/")} className={styles.logoBox}>
         <h1 className={styles.title}>
           purchase contracts
           <br />
@@ -15,6 +16,7 @@ const Header = () => {
       {/* Center (search) box */}
       <div className={styles.searchBox}>
         <input
+          name="search"
           type="search"
           placeholder="Search..."
           className={styles.search}
@@ -22,9 +24,12 @@ const Header = () => {
       </div>
       {/* Right (button) box */}
       <div className={styles.buttonBox}>
-        <button className={styles.button}>
-          <p className={styles.buttonText}>new</p>
-          <img src={CrossIcon} height={22} width={22} />
+        <button
+          onClick={() => navigate("/new-contract")}
+          className={styles.button}
+        >
+          <p className={styles.buttonText}>add new</p>
+          <div className={styles.crossIcon} />
         </button>
       </div>
     </div>
