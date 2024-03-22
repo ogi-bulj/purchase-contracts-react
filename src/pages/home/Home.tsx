@@ -14,7 +14,7 @@ const Home = () => {
   const [filterActive, setFilterActive] = useState(true);
   const [filterInactive, setFilterInactive] = useState(true);
 
-  // API call and data setting
+  // API poziv
   useEffect(() => {
     getContracts()
       .then((res) => {
@@ -22,13 +22,13 @@ const Home = () => {
         setLoading(false);
       })
       .catch((err) => {
-        // TO-DO!: Logika u slučaju errora.
+        // TO-DO!: Logika u slučaju errora
         console.log(err);
       });
   }, []);
 
-  // Filtering logic based on contracts data
-  useMemo(() => {
+  // Logika filtriranja contracts podataka
+  const filteredData = useMemo(() => {
     let filtered = tableData;
     if (!searchQuery) {
       if (!filterActive && !filterInactive) {
@@ -53,9 +53,13 @@ const Home = () => {
         );
       });
     }
-    setContracts(filtered);
     return filtered;
-  }, [tableData, searchQuery, filterActive, filterInactive, setContracts]);
+  }, [tableData, searchQuery, filterActive, filterInactive]);
+
+  // Ažuriranje contracts context-a
+  useEffect(() => {
+    setContracts(filteredData);
+  }, [contracts, filteredData, setContracts]);
 
   const handleFilterActive = () => {
     setFilterActive(!filterActive);
@@ -95,7 +99,7 @@ const Home = () => {
               Neaktivni ugovori
             </label>
           </div>
-          <Table data={contracts} />
+          <Table data={filteredData} />
         </div>
       )}
     </div>
