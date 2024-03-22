@@ -33,6 +33,7 @@ const Header = () => {
             className={styles.search}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            onClick={() => navigate("/")}
           />
         </label>
       </div>

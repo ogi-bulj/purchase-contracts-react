@@ -1,6 +1,6 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
-import { Home, Contract, NewContract } from "./pages";
+import { Home, SingleContract, NewContract } from "./pages";
 import { Footer, Header } from "./components";
 import { useState } from "react";
 import SearchContext, { SearchContextValue } from "./contexts/SearchContext";
@@ -19,7 +19,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/contract" element={<Contract />} />
+            <Route path="/contract/:id" element={<SingleContract />} />
             <Route path="/new-contract" element={<NewContract />} />
           </Routes>
           <Footer />

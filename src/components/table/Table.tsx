@@ -10,6 +10,9 @@ interface TableDataProps {
 }
 const Table: React.FC<TableDataProps> = ({ data }) => {
   const navigate = useNavigate();
+  const handleContract = (contract: Contract) => {
+    navigate(`/contract/${contract.id}`, { state: contract });
+  };
   return (
     <table className={styles.table}>
       <thead>
@@ -25,7 +28,7 @@ const Table: React.FC<TableDataProps> = ({ data }) => {
           <tr
             key={item.id}
             className={styles.row}
-            onClick={() => navigate("/contract")}
+            onClick={() => handleContract(item)}
           >
             <td className={styles.cell}>{item.kupac}</td>
             <td className={styles.cell}>{item.broj_ugovora}</td>
