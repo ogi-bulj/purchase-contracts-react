@@ -9,11 +9,25 @@ import { ContractsContext } from "../../contexts/ContractsContext";
 const Home = () => {
   const { contracts, setContracts } = useContext(ContractsContext);
   const { searchQuery } = useContext(SearchContext);
-  const [tableData, setTableData] = useState<Contract[]>(contracts);
+  const [tableData, setTableData] = useState<Contract[]>([]);
   const [loading, setLoading] = useState(true);
   const [filterActive, setFilterActive] = useState(true);
   const [filterInactive, setFilterInactive] = useState(true);
-  // Filtriranje date preko live search query-a i checkbox filtera
+
+  // API call and data setting
+  useEffect(() => {
+    getContracts()
+      .then((res) => {
+        setTableData(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        // TO-DO!: Logika u slučaju errora.
+        console.log(err);
+      });
+  }, []);
+
+  // Filtering logic based on contracts data
   useMemo(() => {
     let filtered = tableData;
     if (!searchQuery) {
@@ -39,26 +53,18 @@ const Home = () => {
         );
       });
     }
-    return setContracts(filtered);
+    setContracts(filtered);
+    return filtered;
   }, [tableData, searchQuery, filterActive, filterInactive, setContracts]);
-  // API poziv
-  useEffect(() => {
-    getContracts()
-      .then((res) => {
-        setTableData(res.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+
   const handleFilterActive = () => {
     setFilterActive(!filterActive);
   };
+
   const handleFilterInactive = () => {
     setFilterInactive(!filterInactive);
   };
-  console.log(contracts);
+
   return (
     <div className={styles.container}>
       {loading ? (
