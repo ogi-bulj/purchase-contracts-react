@@ -37,13 +37,6 @@ const NewContract = () => {
     };
     setContracts([...contracts, newContractWithId]);
     setIsCreated(true);
-    setNewContract({
-      id: null,
-      kupac: "",
-      broj_ugovora: "",
-      datum_akontacije: "",
-      rok_isporuke: "",
-    });
   };
   return (
     <div className={styles.container}>

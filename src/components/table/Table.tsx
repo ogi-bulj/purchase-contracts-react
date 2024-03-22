@@ -3,11 +3,13 @@ import styles from "./Table.module.css";
 import { Contract } from "../../api/getContracts";
 import { formatDate } from "../../utils/formatDate";
 import { formatContractStatus } from "../../utils/formatContractStatus";
+import { useNavigate } from "react-router";
 
 interface TableDataProps {
   data: Contract[];
 }
 const Table: React.FC<TableDataProps> = ({ data }) => {
+  const navigate = useNavigate();
   return (
     <table className={styles.table}>
       <thead>
@@ -20,7 +22,11 @@ const Table: React.FC<TableDataProps> = ({ data }) => {
       </thead>
       <tbody className={styles.body}>
         {data.map((item) => (
-          <tr key={item.id} className={styles.row}>
+          <tr
+            key={item.id}
+            className={styles.row}
+            onClick={() => navigate("/contract")}
+          >
             <td className={styles.cell}>{item.kupac}</td>
             <td className={styles.cell}>{item.broj_ugovora}</td>
             <td className={styles.cell}>{formatDate(item.rok_isporuke)}</td>
