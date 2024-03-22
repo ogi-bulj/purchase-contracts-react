@@ -4,15 +4,17 @@ import { Contract, getContracts } from "../../api/getContracts";
 import { Loading, Table } from "../../components";
 import SearchContext from "../../contexts/SearchContext";
 import { formatDate } from "../../utils/formatDate";
+import { ContractsContext } from "../../contexts/ContractsContext";
 
 const Home = () => {
+  const { contracts, setContracts } = useContext(ContractsContext);
   const { searchQuery } = useContext(SearchContext);
-  const [tableData, setTableData] = useState<Contract[]>([]);
+  const [tableData, setTableData] = useState<Contract[]>(contracts);
   const [loading, setLoading] = useState(true);
   const [filterActive, setFilterActive] = useState(true);
   const [filterInactive, setFilterInactive] = useState(true);
-  // Funkcija za filtriranje date preko live search query-a i checkbox filtera
-  const filteredData = useMemo(() => {
+  // Filtriranje date preko live search query-a i checkbox filtera
+  useMemo(() => {
     let filtered = tableData;
     if (!searchQuery) {
       if (!filterActive && !filterInactive) {
@@ -37,8 +39,8 @@ const Home = () => {
         );
       });
     }
-    return filtered;
-  }, [tableData, searchQuery, filterActive, filterInactive]);
+    return setContracts(filtered);
+  }, [tableData, searchQuery, filterActive, filterInactive, setContracts]);
   // API poziv
   useEffect(() => {
     getContracts()
@@ -56,6 +58,7 @@ const Home = () => {
   const handleFilterInactive = () => {
     setFilterInactive(!filterInactive);
   };
+  console.log(contracts);
   return (
     <div className={styles.container}>
       {loading ? (
@@ -86,7 +89,7 @@ const Home = () => {
               Neaktivni ugovori
             </label>
           </div>
-          <Table data={filteredData} />
+          <Table data={contracts} />
         </div>
       )}
     </div>

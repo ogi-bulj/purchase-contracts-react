@@ -1,2 +1,93 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px 5%;
+}
+.title {
+  font-family: "Bai Jamjuree";
+  font-size: 26px;
+  font-weight: 400;
+  margin: 0px;
+}
+.subtitle {
+  font-family: "Poppins";
+  font-size: 16px;
+  font-weight: 300;
+  margin: 0px;
+}
+.link {
+  color: black;
+  text-decoration: underline;
+}
+.link:hover {
+  color: orange;
+  cursor: pointer;
+}
+.form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 36px 0px 0px;
+  row-gap: 20px;
+  width: 100%;
+}
+.formRow {
+  column-gap: 30px;
+  display: flex;
+  justify-content: center;
+}
+.label {
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins";
+  font-size: 14px;
+  font-weight: 300;
+  row-gap: 8px;
+  text-align: start;
+}
+.input {
+  border-radius: 8px;
+  border: 0.5px rgba(0, 0, 0, 0.5) solid;
+  height: 24px;
+  font-family: "Poppins";
+  font-size: 16px;
+  font-weight: 300;
+  min-width: 200px;
+  padding: 10px 20px;
+}
+.button {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.25);
+  border: solid transparent 1px;
+  border-radius: 8px;
+  color: #000000;
+  display: flex;
+  flex-direction: row;
+  gap: 0px 10px;
+  margin: 20px 0px 0px;
+  padding: 12px 20px;
+  transition: all 400ms;
+}
+.button:hover {
+  background-color: white;
+  border: solid rgba(0, 0, 0, 0.5) 1px;
+  cursor: pointer;
+  transition: all 400ms;
+}
+.buttonText {
+  color: #ffffff;
+  font-family: "Bai Jamjuree";
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0px;
+  text-transform: capitalize;
+}
+.button:hover .buttonText {
+  color: #000000;
+}
+.createdContract {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
 }

@@ -4,6 +4,7 @@ import { Home, Contract, NewContract } from "./pages";
 import { Footer, Header } from "./components";
 import { useState } from "react";
 import SearchContext, { SearchContextValue } from "./contexts/SearchContext";
+import { ContractsProvider } from "./contexts/ContractsContext";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -13,15 +14,17 @@ function App() {
   };
   return (
     <Router>
-      <SearchContext.Provider value={contextValue}>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contract" element={<Contract />} />
-          <Route path="/new-contract" element={<NewContract />} />
-        </Routes>
-        <Footer />
-      </SearchContext.Provider>
+      <ContractsProvider>
+        <SearchContext.Provider value={contextValue}>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/contract" element={<Contract />} />
+            <Route path="/new-contract" element={<NewContract />} />
+          </Routes>
+          <Footer />
+        </SearchContext.Provider>
+      </ContractsProvider>
     </Router>
   );
 }
