@@ -8,11 +8,28 @@
   align-items: start;
   display: flex;
   flex-direction: column;
-  row-gap: 30px;
+  row-gap: 20px;
   width: 100%;
 }
 .tableTitle {
   font-family: "Bai Jamjuree";
   font-size: 26px;
   font-weight: 400;
+  margin: 0px;
+}
+.filters {
+  column-gap: 24px;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.filterLabel {
+  column-gap: 10px;
+  cursor: pointer;
+  font-family: "Poppins";
+  font-size: 14px;
+  font-weight: 400;
+}
+.checkbox {
+  margin-right: 8px;
 }

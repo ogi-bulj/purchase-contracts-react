@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./Table.module.css";
-import { Contract } from "../../pages/home/api/getContracts";
+import { Contract } from "../../api/getContracts";
 import { formatDate } from "../../utils/formatDate";
+import { formatContractStatus } from "../../utils/formatContractStatus";
 
 interface TableDataProps {
   data: Contract[];
@@ -26,7 +27,7 @@ const Table: React.FC<TableDataProps> = ({ data }) => {
             <td className={styles.cell}>
               <div
                 style={{
-                  backgroundColor: "red",
+                  backgroundColor: formatContractStatus(item.status),
                 }}
                 className={styles.statusBox}
               />

@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import styles from "./Header.module.css";
 import { useNavigate } from "react-router-dom";
+import SearchContext from "../../contexts/SearchContext";
+import SearchIcon from "../../assets/search.svg";
 
 const Header = () => {
+  const { searchQuery, setSearchQuery } = useContext(SearchContext);
   const navigate = useNavigate();
   return (
     <div className={styles.container}>
@@ -15,12 +19,22 @@ const Header = () => {
       </div>
       {/* Center (search) box */}
       <div className={styles.searchBox}>
-        <input
-          name="search"
-          type="search"
-          placeholder="Search..."
-          className={styles.search}
-        />
+        <label className={styles.searchLabel}>
+          <img
+            src={SearchIcon}
+            height={20}
+            width={20}
+            className={styles.searchIcon}
+          />
+          <input
+            name="search"
+            type="search"
+            placeholder="Pretraži kupca, broj ugovora, rok isporuke..."
+            className={styles.search}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </label>
       </div>
       {/* Right (button) box */}
       <div className={styles.buttonBox}>

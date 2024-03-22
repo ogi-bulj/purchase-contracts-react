@@ -28,13 +28,23 @@
   display: flex;
   width: 30%;
 }
+.searchLabel {
+  display: flex;
+  width: 100%;
+}
+.searchIcon {
+  position: relative;
+  top: 13px;
+  left: 30px;
+}
 .search {
   appearance: none;
   background-color: transparent;
   border: solid rgba(0, 0, 0, 0.5) 1px;
   border-radius: 8px;
   font-family: "Poppins";
-  padding: 0px 16px;
+  font-size: 12px;
+  padding: 0px 16px 0px 36px;
   transition: all 400ms;
   width: 100%;
 }
