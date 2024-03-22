@@ -26,7 +26,7 @@ const Table: React.FC<TableDataProps> = ({ data }) => {
             <td className={styles.cell}>
               <div
                 style={{
-                  backgroundColor: "",
+                  backgroundColor: "red",
                 }}
                 className={styles.statusBox}
               />
