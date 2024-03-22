@@ -25,7 +25,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: "https://ogi-bulj.github.io/purchase-contracts-react/"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
