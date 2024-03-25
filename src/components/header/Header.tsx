@@ -10,7 +10,10 @@ const Header = () => {
   return (
     <div className={styles.container}>
       {/* Left (logo) box */}
-      <div onClick={() => navigate("/")} className={styles.logoBox}>
+      <div
+        onClick={() => navigate("/purchase-contracts-react")}
+        className={styles.logoBox}
+      >
         <h1 className={styles.title}>
           purchase contracts
           <br />
@@ -40,7 +43,7 @@ const Header = () => {
       {/* Right (button) box */}
       <div className={styles.buttonBox}>
         <button
-          onClick={() => navigate("/new-contract")}
+          onClick={() => navigate("/purchase-contracts-react/new-contract")}
           className={styles.button}
         >
           <p className={styles.buttonText}>add new</p>

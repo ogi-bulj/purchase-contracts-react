@@ -11,11 +11,10 @@
     "dobavljač": "Sancta Domenica",
     "status": "NARUČENO"
   },
-
   {
     "id": 3,
     "naziv": "Ploča ugradbena kombinirana Gorenje GCE691BSC",
     "dobavljač": "Bijela tehnika",
-    "status": "ISPORUČEO"
+    "status": "ISPORUČENO"
   }
 ]

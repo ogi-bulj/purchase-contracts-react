@@ -49,3 +49,17 @@
   font-weight: 300;
   margin: 0px;
 }
+.articlesContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  width: 100%;
+}
+.articlesTitle {
+  font-family: "Bai Jamjuree";
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0px;
+  text-transform: capitalize;
+}

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useMemo, useState } from "react";
 import styles from "./Home.module.css";
 import { Contract, getContracts } from "../../api/getContracts";
-import { Loading, Table } from "../../components";
+import { ContractsTable, Loading } from "../../components";
 import SearchContext from "../../contexts/SearchContext";
 import { formatDate } from "../../utils/formatDate";
 import { ContractsContext } from "../../contexts/ContractsContext";
@@ -27,7 +27,7 @@ const Home = () => {
       });
   }, []);
 
-  // Logika filtriranja contracts podataka
+  // Logika filtriranja contracts podataka (aktivni / neaktivni ugovori / live search prema imenu kupca, broju ugovora i roku isporuke)
   const filteredData = useMemo(() => {
     let filtered = tableData;
     if (!searchQuery) {
@@ -99,7 +99,7 @@ const Home = () => {
               Neaktivni ugovori
             </label>
           </div>
-          <Table data={filteredData} />
+          <ContractsTable data={filteredData} />
         </div>
       )}
     </div>

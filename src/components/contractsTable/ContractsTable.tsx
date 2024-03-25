@@ -1,17 +1,19 @@
 import React from "react";
-import styles from "./Table.module.css";
+import styles from "./ContractsTable.module.css";
 import { Contract } from "../../api/getContracts";
 import { formatDate } from "../../utils/formatDate";
 import { formatContractStatus } from "../../utils/formatContractStatus";
 import { useNavigate } from "react-router";
 
-interface TableDataProps {
+interface ContractsTableDataProps {
   data: Contract[];
 }
-const Table: React.FC<TableDataProps> = ({ data }) => {
+const ContractsTable: React.FC<ContractsTableDataProps> = ({ data }) => {
   const navigate = useNavigate();
   const handleContract = (contract: Contract) => {
-    navigate(`/contract/${contract.id}`, { state: contract });
+    navigate(`/purchase-contracts-react/contract/${contract.id}`, {
+      state: contract,
+    });
   };
   return (
     <table className={styles.table}>
@@ -48,4 +50,4 @@ const Table: React.FC<TableDataProps> = ({ data }) => {
   );
 };
 
-export default Table;
+export default ContractsTable;

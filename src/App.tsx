@@ -18,9 +18,15 @@ function App() {
         <SearchContext.Provider value={contextValue}>
           <Header />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/contract/:id" element={<SingleContract />} />
-            <Route path="/new-contract" element={<NewContract />} />
+            <Route path="/purchase-contracts-react/" element={<Home />} />
+            <Route
+              path="/purchase-contracts-react/contract/:id"
+              element={<SingleContract />}
+            />
+            <Route
+              path="/purchase-contracts-react/new-contract"
+              element={<NewContract />}
+            />
           </Routes>
           <Footer />
         </SearchContext.Provider>
