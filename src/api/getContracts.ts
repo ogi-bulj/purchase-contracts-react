@@ -11,7 +11,5 @@ export interface Contract {
 
 export const getContracts = async () => {
   // TO-DO!: S produkcijskim API-jem i stvarnom datom, trebali bi biti zaštićeni API pozivi, što znači da bi trebali slati Bearer token u headersu kako bi dobili pristup ruti i response.
-  return await axios.get<Contract[]>(
-    "../../../purchase-contracts-react/__mocks__/contracts.json"
-  );
+  return await axios.get<Contract[]>("../../../__mocks__/contracts.json");
 };
