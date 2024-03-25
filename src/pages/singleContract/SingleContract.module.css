@@ -11,10 +11,28 @@
   padding: 30px 5%;
   row-gap: 40px;
 }
+.titleContainer {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
 .title {
   font-family: "Bai Jamjuree";
   font-size: 26px;
   font-weight: 400;
+  margin: 0px;
+}
+.editContainer {
+  align-items: center;
+  display: flex;
+  column-gap: 8px;
+  cursor: pointer;
+}
+.editText {
+  font-family: "Bai Jamjuree";
+  font-size: 16px;
+  font-weight: 600;
   margin: 0px;
 }
 .contractNumber {
@@ -46,8 +64,9 @@
 .statusText {
   color: #ffffff;
   font-family: "Poppins";
-  font-weight: 300;
+  font-weight: 400;
   margin: 0px;
+  text-shadow: 1px 1px 2px #000000;
 }
 .articlesContainer {
   align-items: center;
@@ -62,4 +81,20 @@
   font-weight: 400;
   margin: 0px;
   text-transform: capitalize;
+}
+.selectInput {
+  border: 0.5px #000000 solid;
+  font-family: "Poppins";
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0px;
+  text-transform: uppercase;
+  padding: 0.5px 13px;
+}
+.option {
+  font-family: "Poppins";
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0px;
+  text-transform: uppercase;
 }

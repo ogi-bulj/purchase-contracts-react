@@ -16,28 +16,45 @@ const NewContract = () => {
     id: 0,
   });
   const [isCreated, setIsCreated] = useState(false);
+
   const handleKupacChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewContract({ ...newContract, kupac: e.target.value });
   };
+
   const handleBrojUgovoraChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewContract({ ...newContract, broj_ugovora: e.target.value });
   };
+
   const handleDatumAkontacijeChange = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     setNewContract({ ...newContract, datum_akontacije: e.target.value });
   };
+
   const handleRokIsporukeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewContract({ ...newContract, rok_isporuke: e.target.value });
   };
+
   const handleCreateContract = () => {
-    const newContractWithId = {
-      ...newContract,
-      id: Math.floor(Math.random() * 100000) + 1,
-    };
-    setContracts([...contracts, newContractWithId]);
-    setIsCreated(true);
+    // Provjeravamo jesu li sva polja popunjena prije kreiranja ugovora.
+    if (
+      newContract.kupac &&
+      newContract.broj_ugovora &&
+      newContract.datum_akontacije &&
+      newContract.rok_isporuke
+    ) {
+      const newContractWithId = {
+        ...newContract,
+        id: Math.floor(Math.random() * 100000) + 1,
+      };
+      // Ovdje dodajemo novi ugovor u postojeći array. S pravim API-jem, radimo novi API poziv za spremanje kreiranog ugovora u bazu te pri povratku na listu ugovora ponovno dohvaćamo ugovore iz baze i prikazujemo na client-u.
+      setContracts([...contracts, newContractWithId]);
+      setIsCreated(true);
+    } else {
+      alert("Molimo popunite sva polja!");
+    }
   };
+
   return (
     <div className={styles.container}>
       {isCreated ? (
@@ -45,7 +62,10 @@ const NewContract = () => {
           <p className={styles.title}>Ugovor uspješno kreiran!</p>
           <p className={styles.subtitle}>
             Povratak na{" "}
-            <a onClick={() => navigate("/")} className={styles.link}>
+            <a
+              onClick={() => navigate("/purchase-contracts-react")}
+              className={styles.link}
+            >
               pregled ugovora
             </a>
             .

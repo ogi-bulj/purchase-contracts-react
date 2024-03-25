@@ -15,7 +15,7 @@ const Home = () => {
   const [filterInactive, setFilterInactive] = useState(true);
 
   // API poziv
-  useEffect(() => {
+  useMemo(() => {
     getContracts()
       .then((res) => {
         setTableData(res.data);
