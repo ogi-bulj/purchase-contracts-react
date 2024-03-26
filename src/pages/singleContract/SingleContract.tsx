@@ -29,7 +29,7 @@ const SingleContract = () => {
 
   // API poziv za artikle
   useEffect(() => {
-    getArticlesById() // Dodano slanje ID-ja u API poziv
+    getArticlesById()
       .then((res) => {
         setArticlesData(res.data);
       })
